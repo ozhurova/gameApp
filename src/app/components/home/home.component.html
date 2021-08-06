@@ -2,7 +2,9 @@
     <mat-form-field>
       <mat-label>Sort</mat-label>
       <mat-select
-        panelClass="sort-select">
+        panelClass="sort-select"
+        [(ngModel)]="sort"
+      >
         <mat-option value="name">Name</mat-option>
         <mat-option value="-released">Released</mat-option>
         <mat-option value="-added">Added</mat-option>
@@ -14,25 +16,28 @@
     </mat-form-field>
   </div>
 
-<div class="games">
-  <div class="game">
+<div class="games" >
+  <div *ngFor="let game of games">
+    <div class="game">
     <div class="game-thumb-container">
-      <img
-        src="https://ae01.alicdn.com/kf/HTB14_kXRpXXXXb9apXXq6xXFXXXW.jpg"
+      <img *ngIf="game.background_image"
+        src="{{ game.background_image }}"
         alt="thumbnail"
         class="game-thumbnail"
       />
+      <p *ngIf="!game.background_image">No image</p>
     </div>
     <div class="game-description">
-      <p class="game-name">Name</p>
+      <p class="game-name">{{ game.name }}</p>
       <div class="game-platforms">
-        <img
+        <img *ngFor="let gamePlatform of game.parent_platforms; index as i"
           class="game-platform"
-          src="https://pluspng.com/img-png/xbox-logo-png-xbox-logo-png-image-xbox-logo-video-games-birthday-party-video-2000x1977.png"
-          alt="platform-icon"
+          src="assets/images/platforms/{{ gamePlatform.platform.slug}}.svg"
+          alt="{{ gamePlatform.platform.slug}}"
         />
       </div>
     </div>
+  </div>
   </div>
 </div>
 
