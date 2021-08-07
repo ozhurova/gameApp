@@ -1,4 +1,5 @@
 export interface Game {
+  id: number;
   background_image: string;
   name: string;
   released: string;
@@ -6,16 +7,16 @@ export interface Game {
   website: string;
   description: string;
   metacritic: number;
-  genres: Array<Genre>;
-  parent_platforms: Array<ParentPlatforms>;
-  publishers: Array<Publishers>;
-  ratings: Array<Ratings>;
-  screenshots: Array<Screenshots>;
-  trailers: Array<Trailer>;
+  genres: Genre[];
+  parent_platforms: ParentPlatforms[];
+  publishers: Publishers[];
+  ratings: Ratings[];
+  screenshots: Screenshots[];
+  trailers: Trailer[];
 }
 
 export interface APIResponse<Game> {
-  results: Array<Game>;
+  results: Game[];
 }
 
 interface  Genre {
