@@ -10,6 +10,14 @@
     height: 150px;
     display: block;
     padding: 10px;
+    @media(max-width: 500px){
+      width: 100px;
+      height: 100px;
+    }
+    @media(max-width: 400px){
+      width: 80px;
+      height: 80px;
+    }
 
     .dial {
       stroke-width: 10;
@@ -23,6 +31,9 @@
       fill: #fff;
       font-weight: 700;
       font-size: 24px;
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
     }
   }
 
@@ -30,12 +41,24 @@
     position: absolute;
     top: 50px;
     right: 0;
+    @media(max-width: 400px){
+      top: 80px;
+    }
+
 
     &-label {
       font-size: 20px;
       color: #ffff;
       position: relative;
       bottom: 60px;
+      @media(max-width: 500px){
+        font-size: 12px;
+        bottom: 50px;
+      }
+      @media(max-width: 400px){
+        font-size: 12px;
+        bottom: 40px;
+      }
     }
   }
 }
@@ -44,6 +67,9 @@
   &-banner {
     height: 440px;
     overflow: hidden;
+    @media(max-width: 800px){
+      height: auto;
+    }
 
     &-img {
       width: 100%;
@@ -64,11 +90,26 @@
       font-weight: 700;
       line-height: 70px;
       white-space: nowrap;
+      @media (max-width: 650px){
+        font-size: 50px;
+      }
+      @media (max-width: 500px){
+        font-size: 30px;
+        margin: 0;
+      }
+      @media (max-width: 300px){
+        font-size: 24px;
+        margin: 0;
+      }
     }
 
     &-release-date {
       color: #ffff;
       font-weight: 700;
+      @media (max-width: 500px){
+        font-size: 20px;
+        margin: 0;
+      }
     }
 
     &-genres {
