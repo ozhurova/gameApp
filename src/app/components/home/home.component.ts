@@ -15,32 +15,30 @@ export class HomeComponent implements OnInit, OnDestroy {
   public games: Game[];
   public count: number;
   public page: number = 1
+  public pageSize: number = 20
   private routeSub: Subscription;
   private gameSub: Subscription;
-  // private pageSub: Subscription;
 
   constructor(
     private httpService: HttpService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) {
-  }
+  ) {}
 
   ngOnInit () {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       if (params['game-search']) {
         this.searchGames('metacrit', this.page ,params['game-search'] );
       } else {
-        this.searchGames('metacrit', this.page)
-
+        this.searchGames('metacrit', this.page, this.pageSize)
       }
     });
     console.log(this.routeSub);
   };
 
-  searchGames(sort: string,  page: number, search?: string,): void {
+  searchGames(sort: string,  page: number, pageSize: number, search?: string): void {
     this.gameSub = this.httpService
-      .getGameList(sort, page, search,)
+      .getGameList(sort, page, pageSize, search)
       .subscribe((gameList: APIResponse<Game>) => {
         this.games = gameList.results;
         this.count = gameList.count;
@@ -60,17 +58,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-
   onPaginateChange(event: PageEvent): void {
     this.page = event.pageIndex;
+    this.pageSize = event.pageSize
     this.page += 1;
     this.ngOnInit()
-    // this.pageSub = this.httpService
-    //   .getGameList(this.sort)
-    //   .subscribe((gameList: APIResponse<Game>) => {
-    //     this.games = gameList.results;
-    //     this.count = gameList.count;
-    //   });
-  // }
   }
 }

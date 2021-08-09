@@ -4,13 +4,10 @@ import { APIResponse, Game } from "../models";
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment as env } from 'src/environments/environment';
-// import { page } from '../components/home/home.component'
-
 
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class HttpService {
 
@@ -19,18 +16,17 @@ export class HttpService {
   getGameList(
     ordering: string,
     page: number,
+    pageSize: number,
     search?: string,
-
   ): Observable<APIResponse<Game>> {
     let params = new HttpParams().set('ordering', ordering);
     if (search) {
       params = new HttpParams().set('ordering', ordering).set('search', search);
     }
-    console.log(page)
-    return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games?page=${page}`, {
-    // return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
+    return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games?page=${page}&page_size=${pageSize}`,
+      {
       params: params,
-    });
+      });
   }
 
   getGameDetails(id: string): Observable<Game> {
