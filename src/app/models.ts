@@ -1,4 +1,7 @@
 export interface Game {
+  page: number;
+  page_size: number;
+  developers: Developers[];
   id: number;
   background_image: string;
   name: string;
@@ -17,6 +20,13 @@ export interface Game {
 
 export interface APIResponse<Game> {
   results: Game[];
+  next: string;
+  previous: string | null;
+  count: number;
+
+
+}export interface Developers {
+  dev: string;
 }
 
 interface  Genre {

@@ -4,7 +4,7 @@
       <mat-select
         panelClass="sort-select"
         [(ngModel)]="sort"
-        (selectionChange)="searchGames(sort)"
+        (selectionChange)="searchGames(sort, page)"
       >
         <mat-option value="name">Name</mat-option>
         <mat-option value="-released">Released</mat-option>
@@ -40,4 +40,11 @@
     </div>
   </div>
   </div>
+
 </div>
+<mat-paginator
+  [length] = "count"
+  [pageSize] = "20"
+  (page) = "onPaginateChange($event)"
+>
+</mat-paginator >

@@ -10,6 +10,7 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -37,6 +38,7 @@ import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatPaginatorModule,
     GaugeModule.forRoot(),
   ],
   providers: [
