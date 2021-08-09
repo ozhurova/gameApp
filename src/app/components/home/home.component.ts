@@ -3,7 +3,7 @@ import { APIResponse, Game } from 'src/app/models';
 import { HttpService } from 'src/app/services/http.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import {PageEvent} from "@angular/material/paginator";
+import { PageEvent } from "@angular/material/paginator";
 
 @Component({
   selector: 'app-home',
@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   public sort: string;
   public games: Game[];
   public count: number;
-  public page: number = 1
-  public pageSize: number = 20
+  public page: number = 1;
+  public pageSize: number = 20;
   private routeSub: Subscription;
   private gameSub: Subscription;
 
@@ -28,12 +28,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit () {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       if (params['game-search']) {
-        this.searchGames('metacrit', this.page ,params['game-search'] );
+        this.searchGames('metacrit', this.page ,this.pageSize, params['game-search'] );
       } else {
         this.searchGames('metacrit', this.page, this.pageSize)
       }
     });
-    console.log(this.routeSub);
   };
 
   searchGames(sort: string,  page: number, pageSize: number, search?: string): void {
@@ -63,5 +62,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.pageSize = event.pageSize
     this.page += 1;
     this.ngOnInit()
+    window.scrollTo(0,0)
+    this.router.navigate(['games', this.page]);
   }
 }
