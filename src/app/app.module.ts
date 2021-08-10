@@ -19,6 +19,7 @@ import { HttpErrorsInterceptor } from "./interceptors/http-errors.interceptors";
 import { DetailsComponent } from './components/details/details.component';
 import { GaugeModule } from "angular-gauge";
 import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
     HomeComponent,
     DetailsComponent,
     GameTabsComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
