@@ -1,0 +1,34 @@
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  &-title {
+    color: #ffffff;
+    font-size: 300px;
+    line-height: 300px;
+    text-shadow: 11px -5px 2px rgba(205,197,197,0.3);
+    @media (max-width: 1400px){
+      font-size: calc(100px + (300 - 100) * ((100vw - 280px) / (1400 - 280)));
+      line-height: calc(100px + (300 - 100) * ((100vw - 280px) / (1400 - 280)));
+    }
+  }
+  &-text {
+    color: #949494;
+    font-size: 50px;
+    line-height: 100px;
+    @media (max-width: 1400px){
+      font-size: calc(20px + (50 - 20) * ((100vw - 280px) / (1400 - 280)));
+      line-height: calc(40px + (100 - 40) * ((100vw - 280px) / (1400 - 280)));
+    }
+}
+  &-link {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    @media (max-width: 1400px) {
+      font-size: calc(14px + (20 - 14) * ((100vw - 280px) / (1400 - 280)));
+    }
+  }
+}
