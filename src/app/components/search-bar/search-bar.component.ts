@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import { NgForm } from "@angular/forms";
-import {formatNumber} from "@angular/common";
+import {NgForm} from "@angular/forms";
+
 
 @Component({
   selector: 'app-search-bar',
@@ -9,14 +9,17 @@ import {formatNumber} from "@angular/common";
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
+  public title: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,) {
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit( form: NgForm){
+  onSubmit(form: NgForm) {
     this.router.navigate(['search', form.value.search])
+    setTimeout(() => this.title = '', 1000)
   }
 
 }

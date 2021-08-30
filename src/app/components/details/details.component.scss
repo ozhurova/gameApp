@@ -10,19 +10,24 @@
     height: 150px;
     display: block;
     padding: 10px;
-
-    .dial {
+    @media(max-width: 500px){
+      width: 100px;
+      height: 100px;
+    }
+    @media(max-width: 400px){
+      width: 80px;
+      height: 80px;
+    }
+    .dial, .value {
       stroke-width: 10;
     }
-
-    .value {
-      stroke-width: 10;
-    }
-
     .value-text {
       fill: #fff;
       font-weight: 700;
       font-size: 24px;
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
     }
   }
 
@@ -31,19 +36,33 @@
     top: 50px;
     right: 0;
 
+    @media(max-width: 400px){
+      top: 80px;
+    }
     &-label {
       font-size: 20px;
       color: #ffff;
       position: relative;
       bottom: 60px;
+      @media(max-width: 500px){
+        font-size: 12px;
+        bottom: 50px;
+      }
+      @media(max-width: 400px){
+        font-size: 12px;
+        bottom: 40px;
+      }
     }
   }
 }
 
 .game {
   &-banner {
-    height: 440px;
+    height: 500px;
     overflow: hidden;
+    @media(max-width: 800px){
+      height: 300px;
+    }
 
     &-img {
       width: 100%;
@@ -54,7 +73,7 @@
   &-content {
     text-align: center;
     position: relative;
-    top: -200px;
+    top: -300px;
   }
 
   &-header {
@@ -63,12 +82,22 @@
       color: #ffff;
       font-weight: 700;
       line-height: 70px;
-      white-space: nowrap;
+      @media (max-width: 1400px){
+        font-size: calc(20px + (70 - 20) * ((100vw - 280px) / (1400 - 280)));
+      }
+      @media (max-width: 300px){
+        line-height: 40px;
+      }
     }
 
     &-release-date {
       color: #ffff;
       font-weight: 700;
+      font-size: 30px;
+      @media (max-width: 550px){
+        font-size: calc(14px + (30 - 14) * ((100vw - 280px) / (1400 - 280)));
+        margin: 0;
+      }
     }
 
     &-genres {

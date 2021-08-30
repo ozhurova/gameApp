@@ -1,7 +1,7 @@
-.filters {
-    max-width: 1200px;
+.wrapper {
     margin: 20px auto;
-    padding-left: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   ::ng-deep {
@@ -14,7 +14,6 @@
     .mat-form-field-hide-placeholder .mat-select-placeholder,
     .mat-form-field-appearance-legacy .mat-form-field-label {
       color: #fff !important;
-      color: #fff;
       opacity: 1;
     }
 
@@ -42,13 +41,13 @@
   }
 
   .game {
-  width: 280px;
+  width: 260px;
   margin: 10px;
   height: 330px;
   overflow: hidden;
   border-radius: 5px;
   background-color: #202020;
-  box-shadow: 4px 3px 8px 0px rgba(15, 147, 255, 0.2);
+  box-shadow: 4px 3px 8px 0 rgba(15, 147, 255, 0.2);
   transition-duration: 0.3s;
   cursor: pointer;
 
@@ -100,4 +99,15 @@
     width: 20px;
     margin-right: 10px;
   }
+
+}
+.error-search {
+  color: #ffffff !important;
+  font-size: 20px;
+  text-align: center;
+}
+
+.paginator {
+  background-color: #333c47;
+  color: #ffffff;
 }

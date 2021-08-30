@@ -5,25 +5,28 @@ import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment as env } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class HttpService {
 
   constructor(private http: HttpClient) { }
 
   getGameList(
     ordering: string,
-    search?: string
+    page: number,
+    pageSize: number,
+    search?: string,
   ): Observable<APIResponse<Game>> {
     let params = new HttpParams().set('ordering', ordering);
     if (search) {
       params = new HttpParams().set('ordering', ordering).set('search', search);
     }
-    return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
+    return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games?page=${page}&page_size=${pageSize}`,
+      {
       params: params,
-    });
+      });
   }
 
   getGameDetails(id: string): Observable<Game> {
