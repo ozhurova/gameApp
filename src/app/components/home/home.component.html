@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <mat-form-field *ngIf="games.length">
+    <mat-form-field *ngIf="games.length" >
       <mat-label>Sort</mat-label>
       <mat-select
         panelClass="sort-select"
@@ -17,7 +17,7 @@
     </mat-form-field>
   </div>
 <p class="error-search" *ngIf="!games.length">Unfortunately the game at your request is not in our database.</p>
-<div class="games" *ngIf="games.length">
+<div class="games" *ngIf="games">
   <div *ngFor="let game of games">
     <div class="game" (click)="openGameDetails(game.id)">
     <div class="game-thumb-container">
@@ -42,11 +42,12 @@
   </div>
 
 </div>
-<mat-paginator class="paginator"
+<mat-paginator *ngIf="games.length" class="paginator"
   [length] = "count"
   [pageSize] = "20"
-  [pageSizeOptions]="[10, 30, 100]"
+  [pageSizeOptions]="[10, 20, 50]"
   [showFirstLastButtons] = true
   (page) = "onPaginateChange($event)"
 >
 </mat-paginator >
+<router-outlet></router-outlet>
